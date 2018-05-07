@@ -5,3 +5,8 @@ Las features de todo este dataset se extraen de la API de Spotify. Las features 
 
 ## Metodología
 Todas las variable son continuous, excepto key, que es categorical. 
+El dataset utilizado para entrenar es musicot1.csv. En esa tabla están todas las features de todas la canciones que llegaron al top semanal de los 40 principales entre 2000 y 2017. No tenemos en cuenta años previos porque la tipología musical cambia demasiado y desvirtúa la estimación. El test dataset se extrae cuando el usuario busca una canción en la app. Se graba como test2.csv
+Para evitar las variaciones en los resultados con RandomForest realizamos 50 predicciones RandomForest y hacemos la media de todas ellas.
+TODO.
+La estimación tiene algo de overfitting. 
+Hemos estimado que toda canción que supere el 33 por ciento es muy probable que sea canción del verano.
