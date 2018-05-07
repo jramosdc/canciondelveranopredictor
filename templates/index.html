@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>Song hits</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel= "stylesheet" type= "text/css" href= "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<div class="container">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+  <div class="cover">
+    <h1>Will this song be a hit?</h1>
+    <form  class="flex-form" action="." role="form" method="post" id="song">
+    
+      <input type="text" placeholder="Tell me a song, any song" name="song" id="song">
+      <input type="submit" value="Find Features">
+    </form>
+    <div id="madeby">
+        BBVA Data & Analytics
+      <span>
+        <a></a>
+      </span>
+    </div>
+  </div>
+
+</div>
+</html>

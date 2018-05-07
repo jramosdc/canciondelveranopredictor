@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>Song hits</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel= "stylesheet" type= "text/css" href= "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='loading.css') }}">
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
+<script src="{{ url_for('static', filename='loading.js') }}"></script>
+<script src="{{ url_for('static', filename='jquery.progress.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+
+  <div class="cover">
+      
+      {% if probability %}
+        <h1>{{message}}</h1>
+    
+
+      <div id="info">
+        <svg  id="container"></svg>
+
+        <h3 style="color:white;">Do you agree with this?</h3>
+      <div class="buttonwrapper">
+    <div style="padding:2;float:left;width:50%">  
+      <button name="estimationBtn" type="submit"  class="flat-button">Yes</button>
+      </div>
+      <div style="padding:2;float:right;width:50%">
+      <button name="estimationBtn" type="submit"  class="flat-button" >No</button>
+      </div>
+       </div>  
+      </div>
+      <p style="color:white;align:right;"><u>I like it. Let's try again</u></p>
+      {% else %}
+      
+      
+    <h1>Is this the song you want to analyze?</h1>
+      <h3 style="color:white;">{{name}}</h3>
+      <h3 style="color:white;">{{artist}}</h3>
+      <h3 style="color:white;"><span>Popularity on Spotify: </span>{{pop}}</h3>
+  <form style="width: 60%;" action="/estimation/" method="post" id="estimation">
+      <button name="estimationBtn" type="submit" class="flat-button">Estimate</button>
+      
+</form>
+    <p style="color:white;align:right;"><u>No, take me back to search engine</u></p>
+    {% endif %}
+      
+  </div>
+
+</div>
+</body>
+<script>
+    $(document).on('click touchstart', '.flat-button', function() {
+     $('body').loading({
+  message: 'Processing the data...'
+
+});
+    document.getElementById('estimation').submit();
+});
+
+</script>
+<script>
+$("#container").Progress({
+   
+  width: 350,
+
+  height: 50,  
+    
+  percent: {{probability}}, 
+    
+
+  increaseTime: 1000.00/60.00,
+
+  increaseSpeed: 1,
+
+  animate: true
+                     
+});
+</script>
+
+</html>
