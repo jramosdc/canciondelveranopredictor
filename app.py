@@ -27,8 +27,8 @@ celery.conf.update(app.config)
 ##extract song meta
 def searchit(song):
     credentials = oauth2.SpotifyClientCredentials(
-        client_id="2aa43201f32b49abbf1f29527eeee9c3",
-        client_secret= "fe3de5a1ffa248639a11d6f50a9df1b8")
+        client_id="ID",
+        client_secret= "SECRET")
 
     token = credentials.get_access_token()
     
